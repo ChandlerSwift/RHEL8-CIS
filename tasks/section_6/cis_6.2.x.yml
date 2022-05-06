@@ -251,6 +251,7 @@
             path: "{{ item.0 }}"
             recurse: yes
             mode: a-st,g-w,o-rwx
+            follow: false
         register: rhel_08_6_2_9_patch
         when:
             - not ansible_check_mode
