@@ -271,6 +271,7 @@
             recursive: yes
             etype: "{{ item.1.etype }}"
             permissions: "{{ item.1.mode }}"
+            follow: false
         when: not rhel8cis_system_is_container
         with_nested:
             - "{{ (ansible_check_mode | ternary(rhel_08_6_2_9_patch_audit, rhel_08_6_2_9_patch)).results |
@@ -338,6 +339,7 @@
             path: "{{ item.0 }}"
             recurse: yes
             mode: a-st,g-w,o-rwx
+            follow: false
         register: rhel_08_6_2_11_patch
         when:
             - not ansible_check_mode
@@ -357,6 +359,7 @@
             recursive: yes
             etype: "{{ item.1.etype }}"
             permissions: "{{ item.1.mode }}"
+            follow: false
         when: not rhel8cis_system_is_container
         with_nested:
             - "{{ (ansible_check_mode | ternary(rhel_08_6_2_11_patch_audit, rhel_08_6_2_11_patch)).results |
