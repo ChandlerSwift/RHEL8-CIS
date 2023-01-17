@@ -41,8 +41,6 @@
 
 - name: remount tmp
   command: mount -o remount /tmp
-  args:
-      warn: false
 
 - name: restart firewalld
   become: yes
@@ -86,8 +84,6 @@
   changed_when: no
   check_mode: no
   failed_when: no
-  args:
-      warn: no
   when:
       - not rhel8cis_skip_for_travis
   tags:
